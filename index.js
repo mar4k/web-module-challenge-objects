@@ -16,10 +16,12 @@ The function should:
 */
 
 
-function createMenuItem(/*Your code here*/){
-  /*Your code here*/
+function createMenuItem(myName, myPrice, myCategory){
+  const menuItem = {name: myName, price: myPrice, category: myCategory}
+  return menuItem
 }
 
+console.log(createMenuItem('taco', 2, 'entree'))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b (not auto-tested): 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -32,10 +34,14 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
+console.log(createMenuItem('pizza', 10, 'entree'))
+console.log(createMenuItem('ham', 11, 'entree'))
+console.log(createMenuItem('coffee', 2, 'drink'))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
-You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the burger object below that automatically calculates price depending on the string received as a parameter. 
+You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the burger object below that automatically calculates price depending on 
+the string received as a parameter. 
 
 Using the burger object below do the following:
   1. Add a method called discount to the burger object 
@@ -51,9 +57,16 @@ const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  
+  discount: function(customer){
+    if (customer === 'teacher' || customer === 'student') {
+      return (burger.price * .75)
+    } else {
+      return burger.price * .9
+    }
+  },
 }
 
+console.log(burger.discount('teacher'))
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -73,7 +86,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
 
-
+console.log(reviews[5].feedback)
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 (not auto-tested): 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following: (no function needed) 
@@ -81,6 +94,8 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
+reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays"
+console.log(reviews)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -95,9 +110,14 @@ Use the addReview function below to do the following:
 */
 
 
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
+function addReview(myArray, myName, myRating, myFeedback){
+  const newObject = {name: myName, rating: myRating, feedback: myFeedback}
+  myArray.push(newObject)
+  return myArray
 }
+
+addReview(reviews, 'john', 4, 'what a hunk of junk')
+console.log(reviews)
 
 
 
@@ -112,9 +132,13 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(myArray, indexNum) {
+  let returnArray = myArray[indexNum];
+  return returnArray.name + ' gave the restaurant a ' + returnArray.rating + ' star review, and their feedback was: ' + returnArray.feedback;
 }
+
+console.log(getReviewByIndex(reviews, 3));
+
 
   
 
@@ -131,9 +155,16 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(myArray) {
+
+  const newArr = myArray[myArray.length - 1]
+  return newArr.name + ' gave the restaurant a ' + newArr.rating + ' star review, and their feedback was: ' + newArr.feedback 
+
+  
 } 
+
+console.log(getLastReview(reviews));
+
 
 
 
