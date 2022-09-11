@@ -184,10 +184,12 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
-  }
-
+function getReviewsByRating(myArray, myRating){
+  let callback = v => v.rating === myRating;
+  return myArray.filter(callback);
+}
+ 
+console.log(getReviewsByRating(reviews, 3))
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
 Use the getLongReviews function below to do the following:
@@ -202,9 +204,14 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(array) {
+  let callback = v => (v.feedback).split(" ").length > 15; 
+    return array.filter(callback);
   }
+
+console.log(getLongReviews(reviews));
+
+
   
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
@@ -225,10 +232,7 @@ Use the carMaker function below to do the following:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
-    
-}
+
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
